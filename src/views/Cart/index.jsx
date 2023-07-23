@@ -13,6 +13,7 @@ const Cart = () => {
   const removeItem = async (id) => {
     try {
       setRemoving(true);
+      document.getElementById(id).style.display = 'none';
       await commerce.cart.remove(id);
       localStorage.setItem(
         'cart',
@@ -31,13 +32,6 @@ const Cart = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
     window.location.reload();
   };
-  const emptyCart = async () => {
-    setRemoving(true);
-    await commerce.cart.empty();
-    localStorage.removeItem('cart');
-    window.location.reload();
-  };
-  console.log(cart);
   return (
     <div className="bg-[#f6f6f6]">
       <div className="flex  w-full bg-[#f6f6f6] text-[#1f2226]">
@@ -96,7 +90,11 @@ const Cart = () => {
                 </thead>
                 <tbody>
                   {cart?.line_items?.map((item) => (
-                    <tr className="border border-[#ccc]" key={item.id}>
+                    <tr
+                      className="border border-[#ccc]"
+                      key={item.id}
+                      id={item.id}
+                    >
                       <th className="border border-[#ccc] w-[10%]">
                         <img
                           src={item.image.url}
@@ -158,18 +156,10 @@ const Cart = () => {
             <div className="flex justify-between py-5 flex-col-reverse md:flex-row">
               <div className="flex gap-4">
                 <Link to="/">
-                  <div className="btn bg-transparent text-sm capitalize border border-[#ccc] hover:bg-[#fc6539] hover:text-white">
+                  <div className="rounded-[5px] p-3 text-sm capitalize  bg-[#fc6539] hover:text-white">
                     Continue shopping
                   </div>
                 </Link>
-                <div
-                  className={`btn text-sm capitalize shadow bg-[#fc6539] hover:text-white hover:bg-[#fc6539] ${
-                    removing && 'cursor-not-allowed pointer-events-none'
-                  }`}
-                  onClick={emptyCart}
-                >
-                  Empty Cart
-                </div>
               </div>
               <div className="flex flex-col  md:w-2/6 bg-white p-5 rounded shadow mb-6">
                 <div className="text-[20px] font-Poppins_600">Cart Total</div>
