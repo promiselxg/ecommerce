@@ -130,7 +130,7 @@ const Home = () => {
                   alt="easy returns"
                   className="h-[50px] md:h-[100px]"
                 />
-                <span className="py-3 text-[12px] md:text-[15px] uppercase font-ProximaMedium">
+                <span className="py-3 text-[11px] md:text-[15px] uppercase font-ProximaMedium">
                   Easy Returns and Instant refunds
                 </span>
               </div>
@@ -140,7 +140,7 @@ const Home = () => {
                   alt="enjoy a complementary gift with purchase"
                   className="h-[50px] md:h-[100px]"
                 />
-                <span className="py-3 text-[12px] md:text-[15px] uppercase font-ProximaMedium">
+                <span className="py-3 text-[11px] md:text-[15px] uppercase font-ProximaMedium">
                   Enjoy a complementary gift with purchase
                 </span>
               </div>
@@ -150,7 +150,7 @@ const Home = () => {
                   alt="over 35,000 customer reviews"
                   className="h-[50px] md:h-[100px]"
                 />
-                <span className="py-3 text-[12px] md:text-[15px] uppercase font-ProximaMedium">
+                <span className="py-3 text-[11px] md:text-[15px] uppercase font-ProximaMedium">
                   Over 35,000 customer reviews
                 </span>
               </div>
@@ -160,7 +160,7 @@ const Home = () => {
                   alt="extended sizes"
                   className="h-[50px] md:h-[100px]"
                 />
-                <span className="py-3 text-[12px] md:text-[15px] uppercase font-ProximaMedium">
+                <span className="py-3 text-[11px] md:text-[15px] uppercase font-ProximaMedium">
                   extended sizes and expanding...
                 </span>
               </div>
