@@ -7,7 +7,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" exact element={<Home />} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/collections" element={<Products />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
         </Route>

@@ -9,6 +9,8 @@ module.exports = {
         Inter_600: 'Inter-600',
         Inter_400: 'Inter-400',
         Bebas: 'Bebas',
+        ProximaMedium: 'Fontspring-DEMO-proximanovacond-Medium',
+        ProximaBold: 'Fontspring-DEMO-proximanovacond-Bold',
       },
     },
     screens: {

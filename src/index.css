@@ -21,7 +21,20 @@
   font-family: 'Poppins-400';
   src: url('./assets/fonts/Poppins/Poppins-Medium.ttf');
 }
+@font-face {
+  font-family: 'Fontspring-DEMO-proximanovacond-Medium';
+  src: url('./assets/fonts/Proxima/Fontspring-DEMO-proximanova-light.otf');
+}
+@font-face {
+  font-family: 'Fontspring-DEMO-proximanovacond-Bold';
+  src: url('./assets/fonts/Proxima/Fontspring-DEMO-proximanovacond-bold.otf');
+}
 .button {
   height: 0;
   min-height: 0;
+}
+.divider:after,
+.divider:before {
+  background: rgba(0, 0, 0, 0.3);
+  height: 1px;
 }
