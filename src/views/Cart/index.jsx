@@ -32,6 +32,7 @@ const Cart = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
     window.location.reload();
   };
+  console.log(cart);
   return (
     <div className="bg-[#f6f6f6]">
       <div className="flex  w-full bg-[#f6f6f6] text-[#1f2226]">
@@ -62,7 +63,7 @@ const Cart = () => {
                   Browse our products and discover our best deals!
                 </p>
                 <div className="py-5">
-                  <Link to="/">
+                  <Link to="/collections">
                     <div className="btn shadow bg-transparent">
                       Start Shopping
                     </div>
@@ -155,7 +156,7 @@ const Cart = () => {
             </div>
             <div className="flex justify-between py-5 flex-col-reverse md:flex-row">
               <div className="flex gap-4">
-                <Link to="/">
+                <Link to="/collections">
                   <div className="rounded-[5px] p-3 text-sm capitalize  bg-[#fc6539] hover:text-white">
                     Continue shopping
                   </div>

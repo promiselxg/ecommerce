@@ -19,6 +19,8 @@ const Home = () => {
   const [pid, setPid] = useState();
   const [fetchingProducts, setFetchingProducts] = useState(false);
   const { loading, dispatch } = useContext(AddToCartContext);
+  const [categories, setCategories] = useState([]);
+  const [categoryLoading, setCategoryLoading] = useState(false);
 
   const addToCart = async (id, qty, item) => {
     setPid(id);
@@ -61,6 +63,20 @@ const Home = () => {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    const getAllCategories = async () => {
+      setCategoryLoading(true);
+      try {
+        const response = await commerce.categories.list();
+        setCategories(response?.data?.slice(0, 4));
+        setCategoryLoading(false);
+      } catch (error) {
+        console.log(error);
+        setCategoryLoading(false);
+      }
+    };
+    getAllCategories();
+  }, []);
   return (
     <>
       <div className="w-full bg-[white]">
@@ -167,57 +183,36 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <div className="flex w-full">
+          <div className="container mx-auto w-[80%] flex justify-center flex-col text-center">
+            <div className="divider pt-10">TOP CATEGORIES</div>
+          </div>
+        </div>
         <div className="flex w-full bg-[white]">
           <div className="container mx-auto w-[80%]">
-            <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-5 py-5 md:py-10">
-              <div className="cursor-pointer flex flex-col text-center">
-                <img
-                  src="https://www.hellomolly.com/cdn/shop/products/a03i2280_1800x1800.jpg"
-                  alt=""
-                  className="h-[330px] object-cover w-full pb-2"
-                />
-                <span className="border-[1px] border-[rgba(0,0,0,0.5)] p-3 w-full font-ProximaMedium uppercase hover:bg-black hover:text-white">
-                  <Link to="/" className="text-black">
-                    Shop swim
-                  </Link>
-                </span>
-              </div>
-              <div className="cursor-pointer flex flex-col text-center">
-                <img
-                  src="https://www.hellomolly.com/cdn/shop/products/a03i6920_9176bdc2-13b6-4c42-8474-af184082b505_1800x1800.jpg"
-                  alt=""
-                  className="h-[330px] object-cover w-full pb-2"
-                />
-                <span className="border-[1px] border-[rgba(0,0,0,0.5)] p-3 w-full font-ProximaMedium uppercase hover:bg-black hover:text-white">
-                  <Link to="/" className="text-black">
-                    Shop Swim tops
-                  </Link>
-                </span>
-              </div>
-              <div className="cursor-pointer flex flex-col text-center">
-                <img
-                  src="https://www.hellomolly.com/cdn/shop/files/US_CategoryBanner_3_26de3309-930c-4e62-bb00-b99ff05879e0_1080x.jpg?v=1690327620"
-                  alt=""
-                  className="h-[330px] object-cover w-full pb-2"
-                />
-                <span className="border-[1px] border-[rgba(0,0,0,0.5)] p-3 w-full font-ProximaMedium uppercase hover:bg-black hover:text-white">
-                  <Link to="/" className="text-black">
-                    Shop swim bottoms
-                  </Link>
-                </span>
-              </div>
-              <div className="cursor-pointer flex flex-col text-center">
-                <img
-                  src="https://www.hellomolly.com/cdn/shop/files/US_CategoryBanner_4_3edece7b-a5c5-4387-b519-c4178b848a37_1080x.jpg?v=1690327621"
-                  alt=""
-                  className="h-[330px] object-cover w-full pb-2"
-                />
-                <span className="border-[1px] border-[rgba(0,0,0,0.5)] p-3 w-full font-ProximaMedium uppercase hover:bg-black hover:text-white">
-                  <Link to="/" className="text-black">
-                    Shop one pieces
-                  </Link>
-                </span>
-              </div>
+            <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-5 py-5 md:py-10">
+              {categoryLoading ? (
+                <Skeleton active={categoryLoading} />
+              ) : (
+                categories.map((category) => (
+                  <div
+                    className="cursor-pointer flex flex-col text-center"
+                    key={category.id}
+                  >
+                    <img
+                      src={category?.assets[0]?.url}
+                      alt=""
+                      className="h-[330px] object-cover w-full pb-2"
+                    />
+                    <Link
+                      to={`/collections?${category?.slug}`}
+                      className="border-[1px] border-[rgba(0,0,0,0.5)] p-3 w-full font-ProximaMedium uppercase hover:bg-black text-black hover:text-white text-[12px] md:text-[14px]"
+                    >
+                      Shop {category?.name}
+                    </Link>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>
@@ -232,7 +227,7 @@ const Home = () => {
               <Skeleton active={fetchingProducts} />
             ) : (
               <ResponsiveMasonry>
-                <Masonry columnsCount={3} gutter="20px">
+                <Masonry columnsCount={2} gutter="20px">
                   {products?.map((product, i) => (
                     <div
                       key={i}
