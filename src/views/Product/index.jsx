@@ -103,7 +103,7 @@ const Product = () => {
                     {product?.price?.formatted_with_symbol}
                   </p>
                 </div>
-                <div className="w-full justify-center flex text-center mx-auto">
+                {/* <div className="w-full justify-center flex text-center mx-auto">
                   <div className="grid grid-cols-5 gap-3 text-center place-content-center place-items-center">
                     {product?.variant_groups?.map((option) => {
                       return option.options.map((item) => (
@@ -116,7 +116,7 @@ const Product = () => {
                       ));
                     })}
                   </div>
-                </div>
+                </div> */}
                 <div className="flex gap-3 justify-center py-8">
                   {product?.is?.sold_out ? (
                     <button className="btn px-5 w-[80%] bg-black rounded-[20px] text-white border border-[rgba(0,0,0,0.8)] hover:bg-[#ffd8c8e0] hover:text-black cursor-not-allowed">
