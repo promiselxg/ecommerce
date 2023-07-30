@@ -11,7 +11,6 @@ const Product = () => {
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState([]);
   const [productImages, setProductImages] = useState([]);
-  const [variant, setVariant] = useState({});
   const { loading: isLoading, dispatch } = useContext(AddToCartContext);
   useEffect(() => {
     const getProductInfo = async () => {
@@ -48,7 +47,7 @@ const Product = () => {
   const addToCart = async (id, qty, item) => {
     dispatch({ type: 'ADD_TO_CART_START' });
     try {
-      const response = await commerce.cart.add(id, qty, `${variant}`);
+      const response = await commerce.cart.add(id, qty);
       console.log(response);
 
       dispatch({ type: 'ADD_TO_CART_SUCCESS', payload: response.cart });
