@@ -4,16 +4,16 @@ import {
   FiPocket,
   FiShoppingCart,
   FiStar,
-} from 'react-icons/fi';
-import { Hero } from '../../components';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import { useContext, useEffect, useState } from 'react';
-import commerce from '../../lib/commerce';
-import { toast } from 'react-toastify';
-import { AddToCartContext } from '../../context/AddToCartContext';
-import { Skeleton } from 'antd';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+} from "react-icons/fi";
+import { Hero } from "../../components";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { useContext, useEffect, useState } from "react";
+import commerce from "../../lib/commerce";
+import { toast } from "react-toastify";
+import { AddToCartContext } from "../../context/AddToCartContext";
+import { Skeleton } from "antd";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -25,18 +25,18 @@ const Home = () => {
 
   const addToCart = async (id, qty, item) => {
     setPid(id);
-    dispatch({ type: 'ADD_TO_CART_START' });
+    dispatch({ type: "ADD_TO_CART_START" });
     try {
       const response = await commerce.cart.add(id, qty);
-      dispatch({ type: 'ADD_TO_CART_SUCCESS', payload: response.cart });
+      dispatch({ type: "ADD_TO_CART_SUCCESS", payload: response.cart });
       toast(`${item} added to cart successfully`);
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     } catch (error) {
-      dispatch({ type: 'ADD_TO_CART_FAILED' });
+      dispatch({ type: "ADD_TO_CART_FAILED" });
       console.log(error);
     }
   };
@@ -45,7 +45,7 @@ const Home = () => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }, []);
 
@@ -57,7 +57,7 @@ const Home = () => {
         setProducts(response.data);
         setFetchingProducts(false);
       } catch (error) {
-        console.log('There was an error fetching the products', error);
+        console.log("There was an error fetching the products", error);
         setFetchingProducts(false);
       }
     };
@@ -175,8 +175,8 @@ const Home = () => {
                   alt="over 35,000 customer reviews"
                   className="h-[50px] md:h-[100px]"
                 />
-                <span className="py-3 text-[11px] md:text-[15px] uppercase font-ProximaMedium">
-                  Over 35,000 customer reviews
+                <span className="py-3 text-[11px] md:text-[15px] uppercase">
+                  24/7 Customer Support
                 </span>
               </div>
               <div className=" h-fit flex flex-col py-2 md:py-5 text-center">
