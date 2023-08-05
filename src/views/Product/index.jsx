@@ -82,17 +82,15 @@ const Product = () => {
             </h1>
           </div>
           <div className="w-full flex gap-3 relative flex-col md:flex-row">
-            {!loading && productImages && (
-              <div className="w-[full] md:w-1/2">
-                <ImageGallery
-                  items={productImages}
-                  lazyLoad
-                  thumbnailPosition="left"
-                  showFullscreenButton={false}
-                  showPlayButton={false}
-                />
-              </div>
-            )}
+            <div className="w-[full] md:w-1/2">
+              <ImageGallery
+                items={productImages}
+                lazyLoad
+                thumbnailPosition="left"
+                showFullscreenButton={false}
+                showPlayButton={false}
+              />
+            </div>
             <div className="w-full md:w-1/2 sticky top-0">
               <div className="flex justify-center flex-col text-center">
                 <div className="p-5 md:p-10">
@@ -160,11 +158,10 @@ const Product = () => {
                   </div>
                   <div className="collapse-content">
                     <p className="text-[12px] text-[rgba(0,0,0,0.8)]">
-                      We offer FREE standard shipping USA-wide on all orders
-                      over $100. Expect delivery within 6 business days. We also
-                      offer express Next Day and 2-Day services within the USA.
-                      We accept returns for store credit within 30 days of order
-                      delivery for full priced items only.
+                      To be eligible for a return, your item must be unused, in
+                      its original packaging, and in the same condition as when
+                      you received it. You have 15 days from the date of
+                      delivery to initiate a return
                     </p>
                   </div>
                 </div>
@@ -236,6 +233,11 @@ const Product = () => {
           </div>
         </div>
       </div>
+      {loading && (
+        <div className="flex w-full fixed h-screen bg-[rgba(0,0,0,0.6)] top-0 text-center text-[white] justify-center">
+          <span className="loading loading-spinner w-[150px]"></span>
+        </div>
+      )}
     </>
   );
 };

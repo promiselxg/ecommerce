@@ -13,6 +13,7 @@ import { toast } from 'react-toastify';
 import { AddToCartContext } from '../../context/AddToCartContext';
 import { Skeleton } from 'antd';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -79,6 +80,10 @@ const Home = () => {
   }, []);
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>DRF SHOPS </title>
+      </Helmet>
       <div className="w-full bg-[white]">
         <Hero />
         <div className="flex w-full bg-[white] py-5">

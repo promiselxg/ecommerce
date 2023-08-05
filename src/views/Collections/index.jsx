@@ -121,11 +121,7 @@ const Collections = () => {
             <div className="w-full md:w-[80%] bg-[white]">
               <div className="w-full flex">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2 w-full">
-                  {productLoading ? (
-                    <div className="w-full mx-auto justify-center flex text-center">
-                      <span className="loading loading-spinner w-[150px]"></span>
-                    </div>
-                  ) : products?.meta?.pagination?.total === 0 ? (
+                  {products?.meta?.pagination?.total === 0 ? (
                     <div className="h-[300px]">
                       <h1>No Product available in this category</h1>
                     </div>
@@ -166,6 +162,11 @@ const Collections = () => {
           </div>
         </div>
       </div>
+      {productLoading && (
+        <div className="flex w-full fixed h-screen bg-[rgba(0,0,0,0.6)] top-0 text-center text-[white] justify-center">
+          <span className="loading loading-spinner w-[150px]"></span>
+        </div>
+      )}
     </>
   );
 };

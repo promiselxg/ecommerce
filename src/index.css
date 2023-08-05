@@ -75,3 +75,12 @@
     height: 500px !important;
   }
 }
+
+.my-list {
+  list-style: circle;
+  margin-left: 30px;
+}
+
+.my-list > li {
+  padding: 4px 0;
+}
