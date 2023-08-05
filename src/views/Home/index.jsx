@@ -82,7 +82,11 @@ const Home = () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>DRF SHOPS </title>
+        <title>DRF SHOPS | Fashion For Women | Official Online Store</title>
+        <meta
+          name="description"
+          content="drfstors is your go-to destination for the hottest styles and trends. Shop the latest range of dresses, playsuits, skirts, accessories and more. Our new arrivals means you'll be looking on point for every occasion."
+        />
       </Helmet>
       <div className="w-full bg-[white]">
         <Hero />
