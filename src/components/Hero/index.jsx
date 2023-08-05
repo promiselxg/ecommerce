@@ -1,4 +1,3 @@
-import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -6,15 +5,11 @@ import 'react-multi-carousel/lib/styles.css';
 const media = [
   {
     source:
-      'https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=885&q=80',
+      'https://www.beginningboutique.com/cdn/shop/files/US-HERO-DESKTOP-PLACEHOLDER_1b682585-aa08-494b-be30-3e9e5e77c2ec_2000x.png?v=1690234431',
   },
   {
     source:
-      'https://images.squarespace-cdn.com/content/v1/624b503dce400d19b18aa05e/1649102917213-ZE0JVQU1R3QILFB2TF5Y/Stocksy_comp_1173427-reduced.jpg?format=1000w',
-  },
-  {
-    source:
-      'https://images.squarespace-cdn.com/content/v1/624b503dce400d19b18aa05e/1649102917312-QSPPU9IAATXUM7PNCTAH/Stocksy_comp_1504207.jpg?format=500w',
+      'https://www.vrggrl.com/cdn/shop/files/WEB_BANNER_426a4472-c2d2-47f2-a5b7-9ee793866075.jpg?v=1690180699',
   },
 ];
 const Hero = () => {
@@ -71,8 +66,12 @@ const Hero = () => {
           swipeable
         >
           {media?.map((img, i) => (
-            <div key={i} className={`flex h-screen`}>
-              <img src={img.source} alt="" className="w-full object-cover" />
+            <div key={i} className={`flex md:h-[600px] h-[330px] bg-right-top`}>
+              <img
+                src={img.source}
+                alt=""
+                className="w-full object-cover bg-right-top "
+              />
             </div>
           ))}
         </Carousel>

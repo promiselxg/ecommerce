@@ -1,5 +1,5 @@
 import Card from './Card';
 import Header from './Header';
 import Hero from './Hero';
-
-export { Card, Header, Hero };
+import Footer from './Footer';
+export { Card, Header, Hero, Footer };

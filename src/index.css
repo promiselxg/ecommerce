@@ -21,7 +21,66 @@
   font-family: 'Poppins-400';
   src: url('./assets/fonts/Poppins/Poppins-Medium.ttf');
 }
+@font-face {
+  font-family: 'Fontspring-DEMO-proximanovacond-Medium';
+  src: url('./assets/fonts/Proxima/Fontspring-DEMO-proximanova-light.otf');
+}
+@font-face {
+  font-family: 'Fontspring-DEMO-proximanovacond-Bold';
+  src: url('./assets/fonts/Proxima/Fontspring-DEMO-proximanovacond-bold.otf');
+}
 .button {
   height: 0;
   min-height: 0;
+}
+.divider:after,
+.divider:before {
+  background: rgba(0, 0, 0, 0.3);
+  height: 1px;
+}
+.image-gallery-left-nav,
+.image-gallery-right-nav,
+.image-gallery-play-button {
+  display: none;
+}
+.image-gallery-thumbnails .image-gallery-thumbnails-container {
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+}
+.image-gallery-slide .image-gallery-image {
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.image-gallery-content.image-gallery-thumbnails-left
+  .image-gallery-slide
+  .image-gallery-image,
+.image-gallery-content.image-gallery-thumbnails-right
+  .image-gallery-slide
+  .image-gallery-image {
+  max-height: 600px;
+  object-fit: cover;
+  height: 600px !important;
+}
+
+@media screen and (max-width: 480px) {
+  .image-gallery-content.image-gallery-thumbnails-left
+    .image-gallery-slide
+    .image-gallery-image,
+  .image-gallery-content.image-gallery-thumbnails-right
+    .image-gallery-slide
+    .image-gallery-image {
+    object-fit: cover;
+    height: 500px !important;
+  }
+}
+
+.my-list {
+  list-style: circle;
+  margin-left: 30px;
+}
+
+.my-list > li {
+  padding: 4px 0;
 }
