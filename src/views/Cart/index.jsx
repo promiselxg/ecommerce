@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import { CiShoppingCart } from 'react-icons/ci';
-import { AddToCartContext } from '../../context/AddToCartContext';
-import { useContext, useState } from 'react';
-import commerce from '../../lib/commerce';
-import { toast } from 'react-toastify';
+import { Link } from "react-router-dom";
+import { CiShoppingCart } from "react-icons/ci";
+import { AddToCartContext } from "../../context/AddToCartContext";
+import { useContext, useState } from "react";
+import commerce from "../../lib/commerce";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const { cart } = useContext(AddToCartContext);
@@ -15,7 +15,7 @@ const Cart = () => {
       setRemoving(true);
       await commerce.cart.remove(id);
       localStorage.setItem(
-        'cart',
+        "cart",
         JSON.stringify(await commerce.cart.retrieve())
       );
       window.location.reload();
@@ -28,7 +28,7 @@ const Cart = () => {
   const updateQty = async (productId, qty) => {
     setUpdating(true);
     const { cart } = await commerce.cart.update(productId, { quantity: qty });
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
     window.location.reload();
   };
   console.log(cart);
@@ -48,7 +48,7 @@ const Cart = () => {
             </div>
           </div>
         </div>
-        <div className="flex w-full pb-20 flex-col ">
+        <div className="flex w-full pb-20 flex-col text-black">
           {cart?.total_items === 0 || cart === null ? (
             <div className="container mx-auto w-[80%] bg-[white] justify-center items-center shadow rounded py-10">
               <div className="flex flex-col  justify-center text-center">
@@ -75,23 +75,27 @@ const Cart = () => {
           ) : (
             <div className="container mx-auto w-[80%]">
               <div className="overflow-x-auto">
-                <table className="table border  bg-[white]">
+                <table className="table border  bg-[white] ">
                   {/* head */}
                   <thead>
                     <tr className="border border-[#ccc]">
-                      <th className="border border-[#ccc]">Product Image</th>
-                      <th className="border border-[#ccc] text-center">
+                      <th className="border border-[#ccc] text-black">
+                        Product Image
+                      </th>
+                      <th className="border border-[#ccc] text-black text-center">
                         Product
                       </th>
-                      <th className="border border-[#ccc] text-center">
+                      <th className="border border-[#ccc] text-black text-center">
                         Price
                       </th>
-                      <th className="border border-[#ccc]">Quantity</th>
-                      <th className="border border-[#ccc] text-center">
-                        {' '}
+                      <th className="border border-[#ccc] text-black">
+                        Quantity
+                      </th>
+                      <th className="border border-[#ccc] text-black text-center">
+                        {" "}
                         Total
                       </th>
-                      <th className="border border-[#ccc] text-center">
+                      <th className="border border-[#ccc] text-black text-center">
                         Remove
                       </th>
                     </tr>
@@ -99,11 +103,11 @@ const Cart = () => {
                   <tbody>
                     {cart?.line_items?.map((item) => (
                       <tr
-                        className="border border-[#ccc]"
+                        className="border border-[#ccc] text-black"
                         key={item.id}
                         id={item.id}
                       >
-                        <th className="border border-[#ccc] w-[10%]">
+                        <th className="border border-[#ccc] text-black w-[10%]">
                           <img
                             src={item.image.url}
                             alt={item.name}
@@ -133,7 +137,7 @@ const Cart = () => {
                               type="text"
                               maxLength={2}
                               defaultValue={item.quantity}
-                              className="flex p-2 border border-[#ccc] outline-none w-10 justify-center items-center text-center"
+                              className="flex p-2 border border-[#ccc] outline-none w-10 justify-center items-center text-center text-[#fc6539] font-bold"
                             />
                             <button
                               className="p-2 border border-[#ccc] cursor-pointer border-l-0 hover:bg-[#fc6539] hover:text-white disabled:cursor-not-allowed"
@@ -184,7 +188,7 @@ const Cart = () => {
                     </div>
                   </div>
                   <a href={cart?.hosted_checkout_url}>
-                    <div className="btn bg-transparent text-sm font-Poppins_600 border border-[#ccc] hover:bg-[#fc6539] hover:text-white w-full">
+                    <div className="btn bg-transparent text-sm text-black font-Poppins_600 border border-[#ccc] hover:bg-[#fc6539] hover:text-white w-full">
                       checkout ({cart?.subtotal.formatted_with_symbol})
                     </div>
                   </a>

@@ -41,13 +41,13 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     left: 0,
+  //     behavior: "smooth",
+  //   });
+  // }, []);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -203,7 +203,7 @@ const Home = () => {
               {categoryLoading ? (
                 <Skeleton active={categoryLoading} />
               ) : (
-                categories.map((category) => (
+                categories?.map((category) => (
                   <div
                     className="cursor-pointer flex flex-col text-center"
                     key={category.id}
@@ -211,11 +211,11 @@ const Home = () => {
                     <img
                       src={category?.assets[0]?.url}
                       alt=""
-                      className="h-[330px] object-cover w-full pb-2"
+                      className="h-[200px] object-cover w-full pb-2"
                     />
                     <Link
                       to={`/collections?${category?.slug}`}
-                      className="border-[1px] border-[rgba(0,0,0,0.5)] p-3 w-full font-ProximaMedium uppercase hover:bg-black text-black hover:text-white text-[12px] md:text-[14px]"
+                      className="border-[1px] border-[rgba(0,0,0,0.5)] p-3 w-full uppercase hover:bg-black text-black hover:text-white text-[11px] md:text-[14px]"
                     >
                       Shop {category?.name}
                     </Link>
@@ -230,46 +230,32 @@ const Home = () => {
             <div className="divider pb-10">TOP SELLERS</div>
           </div>
         </div>
-        <div className="flex w-full pb-20 bg-white">
-          <div className="container w-[90%] md:w-[80%] mx-auto">
-            {fetchingProducts ? (
-              <Skeleton active={fetchingProducts} />
-            ) : (
-              <ResponsiveMasonry>
-                <Masonry columnsCount={2} gutter="20px">
-                  {products?.map((product, i) => (
-                    <div
-                      key={i}
-                      className="bg-white  rounded-[10px] border-[1px] border-[rgba(0,0,0,0.1)] overflow-hidden"
-                    >
-                      <Link to={`/collections/${product?.id}`}>
-                        <img
-                          src={product?.image?.url}
-                          className="w-full cursor-pointer"
-                        />
 
-                        <div className="p-5">
-                          <div className="flex flex-col pb-2">
-                            <h1 className="text-[24px] font-ProximaMedium text-[rgba(0,0,0,0.9)]">
-                              {product?.name}
-                            </h1>
-                            <p
-                              dangerouslySetInnerHTML={{
-                                __html: product?.description,
-                              }}
-                              className="text-[12px] font-ProximaMedium text-[rgba(0,0,0,0.6)] pb-2"
-                            />
-                            <h1 className="text-[28px] font-Bebas text-black">
-                              {product?.price?.formatted_with_symbol}
-                            </h1>
-                          </div>
-                        </div>
-                      </Link>
+        <div className="flex w-full bg-[white]">
+          <div className="container mx-auto w-[80%]">
+            <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-5 py-5 md:py-10">
+              {categoryLoading ? (
+                <Skeleton active={categoryLoading} />
+              ) : (
+                products?.map((product) => (
+                  <Link key={product.id} to={`/collections/${product?.id}`}>
+                    <div className="cursor-pointer flex flex-col text-center shadow-lg border-[1px] border-[rgba(0,0,0,0.1)]  w-full  uppercase text-black hover:text-black text-[12px] md:text-[14px] rounded-[10px] overflow-hidden hover:shadow-sm">
+                      <img
+                        src={product?.image?.url}
+                        alt=""
+                        className="h-[200px] object-cover w-full"
+                      />
+                      <p className="py-2 px-2 text-left">
+                        {product?.name.substring(0, 30)}
+                      </p>
+                      <h1 className="text-[20px] font-Bebas text-black text-left px-2 pb-3">
+                        {product?.price?.formatted_with_symbol}
+                      </h1>
                     </div>
-                  ))}
-                </Masonry>
-              </ResponsiveMasonry>
-            )}
+                  </Link>
+                ))
+              )}
+            </div>
           </div>
         </div>
       </div>

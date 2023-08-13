@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import Logo from '../../assets/images/logo.png';
-import { FiFacebook, FiInstagram } from 'react-icons/fi';
+import { Link } from "react-router-dom";
+import Logo from "../../assets/images/logo.png";
+import { FiFacebook, FiInstagram } from "react-icons/fi";
 
 const Footer = () => {
   return (
@@ -11,8 +11,8 @@ const Footer = () => {
             <div className="logo">
               <img src={Logo} alt="logo" className="h-[70px]" />
             </div>
-            <p className="text-[14px] font-ProximaMedium max-w-xs">
-              EMAIL:{' '}
+            <p className="text-[14px]  max-w-xs">
+              EMAIL:{" "}
               <a href="mailto:contactdrfshop@derightlimited.co.uk">
                 contactdrfshop@derightlimited.co.uk
               </a>
@@ -22,7 +22,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="w-full md:w-1/2 border-t-[1px] md:border-t-0">
-            <div className="grid grid-cols-2 gap-2 py-10 font-ProximaMedium uppercase text-[12px] md:text-[14px]">
+            <div className="grid grid-cols-2 gap-2 py-10  uppercase text-[12px] md:text-[14px]">
               <Link to="/pages/return" className="hover:underline w-fit">
                 Returns
               </Link>
@@ -59,24 +59,24 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FiFacebook className="text-[24px] font-ProximaMedium text-[rgba(0,0,0,0.4)] hover:text-[rgba(0,0,0,0.7)]" />
+            <FiFacebook className="text-[24px]  text-[rgba(0,0,0,0.4)] hover:text-[rgba(0,0,0,0.7)]" />
           </a>
           {/* <a href="http://" target="_blank" rel="noopener noreferrer">
-            <FiTwitter className="text-[24px] font-ProximaMedium text-[rgba(0,0,0,0.4)] hover:text-[rgba(0,0,0,0.7)]" />
+            <FiTwitter className="text-[24px]  text-[rgba(0,0,0,0.4)] hover:text-[rgba(0,0,0,0.7)]" />
           </a> */}
           <a
             href="https://www.instagram.com/p/CvjkSEULUHG/?igshid=NjFhOGMzYTE3ZQ=="
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FiInstagram className="text-[24px] font-ProximaMedium text-[rgba(0,0,0,0.4)] hover:text-[rgba(0,0,0,0.7)]" />
+            <FiInstagram className="text-[24px]  text-[rgba(0,0,0,0.4)] hover:text-[rgba(0,0,0,0.7)]" />
           </a>
           {/* <a href="http://" target="_blank" rel="noopener noreferrer">
-            <FiYoutube className="text-[24px] font-ProximaMedium text-[rgba(0,0,0,0.4)] hover:text-[rgba(0,0,0,0.7)]" />
+            <FiYoutube className="text-[24px]  text-[rgba(0,0,0,0.4)] hover:text-[rgba(0,0,0,0.7)]" />
           </a> */}
         </div>
         <div className="container flex justify-center text-center py-5">
-          <p className="text-[12px] font-ProximaMedium">
+          <p className="text-[12px] ">
             &copy; 2023 drfshop. All Rights Reserved
           </p>
         </div>

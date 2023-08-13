@@ -1,15 +1,11 @@
-import 'react-awesome-slider/dist/styles.css';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import "react-awesome-slider/dist/styles.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const media = [
   {
     source:
-      'https://www.beginningboutique.com/cdn/shop/files/US-HERO-DESKTOP-PLACEHOLDER_1b682585-aa08-494b-be30-3e9e5e77c2ec_2000x.png?v=1690234431',
-  },
-  {
-    source:
-      'https://www.vrggrl.com/cdn/shop/files/WEB_BANNER_426a4472-c2d2-47f2-a5b7-9ee793866075.jpg?v=1690180699',
+      "https://www.vrggrl.com/cdn/shop/files/WEB_BANNER_426a4472-c2d2-47f2-a5b7-9ee793866075.jpg?v=1690180699",
   },
 ];
 const Hero = () => {
